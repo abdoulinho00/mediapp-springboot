@@ -36,5 +36,5 @@ public class Article {
     //@DateTimeFormat(pattern = "dd/MM/yyyy")
     //@Temporal(TemporalType.DATE)
     private Date modifiedAt;
-    private String type;
+    private ArticleType type;
 }

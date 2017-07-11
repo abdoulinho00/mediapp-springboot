@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sd="http://www.thymeleaf.org/spring-data"
+      layout:decorator="layout"
+      th:with="title='List all articles'">
+<th:block layout:fragment="content">
+    <div class="container p-t-30">
+
+        <div class="row  p-t-30">
+            <div class="col-md-12">
+                <table class="datatable_no_addon stripe" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th th:text="#{article.form.title}"></th>
+                        <th th:text="#{article.form.type}"></th>
+                        <th th:text="#{article.form.author}"></th>
+                        <th th:text="#{article.form.written}"></th>
+                        <th th:text="#{article.form.modified}"></th>
+                        <th data-orderable="true"></th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th th:text="#{article.form.title}"></th>
+                        <th th:text="#{article.form.type}"></th>
+                        <th th:text="#{article.form.author}"></th>
+                        <th th:text="#{article.form.written}"></th>
+                        <th th:text="#{article.form.modified}"></th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <tr th:each="article : ${articles}">
+                        <td th:text="${article.title}"></td>
+                        <td th:text="${article.type}"></td>
+                        <td th:text="${article.author}"></td>
+                        <td th:text="${article.writtenAt}"></td>
+                        <td th:text="${article.modifiedAt}"></td>
+
+                        <td class="actions">
+                            <a th:href="@{/articles/{id}(id=${article.id})}" target="_blank">
+                                    <span class="fa-stack fa-lg">
+                                      <i class="fa fa-square fa-stack-2x"></i>
+                                      <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+                                    </span>
+                            </a>
+                            <a th:href="@{/administration/articles/edit?id={id}(id=${article.id})}">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-square fa-stack-2x"></i>
+                                  <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row p-t-30">
+                    <div class="col-sm-6">
+                        <div sd:pagination-summary=""></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div sd:page-object="${spices}">
+                            <ul class="pagination pull-right m-t-0" sd:pagination="full"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</th:block>
+</html>

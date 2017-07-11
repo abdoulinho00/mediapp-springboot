@@ -6,10 +6,31 @@
       th:with="title='Spices'">
 <th:block layout:fragment="content">
     <div class="container p-t-30">
-        <ul>
-            <li>write full status here</li>
-
+        <ul class="list-group">
+            <li class="list-group-item active">Articles</li>
+            <li class="list-group-item">html editor for article content</li>
+            <li class="list-group-item">delete article</li>
+            <li class="list-group-item list-group-item-danger">Link article to user</li>
+            <li class="list-group-item list-group-item-danger">Create table that tracks articles history</li>
         </ul>
+
+        <ul class="list-group">
+            <li class="list-group-item active">Patient</li>
+            <li class="list-group-item">add/edit patient</li>
+            <li class="list-group-item">delete patient</li>
+            <li class="list-group-item">List patients</li>
+            <li class="list-group-item">view patient details and history</li>
+            <li class="list-group-item">function for adding visits to to a patient</li>
+            <li class="list-group-item">generic form that changes based on type of the visit</li>
+            <li class="list-group-item">Spike eesthetic session ?? And how to handle them</li>
+        </ul>
+
+        <ul class="list-group">
+            <li class="list-group-item active">Menu</li>
+            <li class="list-group-item">Create a menu for item</li>
+            <li class="list-group-item">Calculate calorimetry needs for a patient or enter manuaaly values : Submit a form || Javascript</li>
+        </ul>
+
 
     </div>
 </th:block>

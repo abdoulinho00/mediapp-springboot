@@ -50,13 +50,12 @@ public class HomeController {
     public ModelAndView signup(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
         log.info("trying to signup new user : {}" , form.getEmail());
         if (bindingResult.hasErrors()) {
-            log.info("probleme has errors");
-            log.info("errors: {}" ,bindingResult.getAllErrors());
             return new ModelAndView("signup");
         }
         try {
             userService.create(form);
         } catch (DataIntegrityViolationException e) {
+            log.debug("email {} already exist" , form.getEmail(), e);
             bindingResult.reject("email.exists", "Email already exists");
             return new ModelAndView("signup");
         }
