@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    name: spices
+    url: jdbc:mysql://localhost:3306/mediapp
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: MYSQL
+
+  http:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 30MB
+
+file-manager:
+  base-folder:  /Users/dev/workspace/mediapp/data
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36}.%M-%line - %msg%n"

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://www.thymeleaf.org/spring-data"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Spices'">
+<th:block layout:fragment="content">
+    <div class="container p-t-30 text-center">
+        <div class="row">
+            <h1 class="text-center" th:text="#{general.error.internal-server}"></h1>
+            <h1 class="text-center">¯\_(ツ)_/¯</h1>
+        </div>
+
+        <div class="row m-t-30">
+            <div class="col-md-8 col-md-offset-2">
+                <div align="center" class="embed-responsive embed-responsive-16by9 "  >
+                    <video id="index-video" loop autoplay class="embed-responsive-item video-js" onclick="this.paused ? this.play() : this.pause();">
+                        <source th:src="@{/assets/images/confused.mp4}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>
