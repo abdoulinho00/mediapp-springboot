@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Spices'">
+<th:block layout:fragment="content">
+    <div class="container p-t-30">
 
-</body>
+        <form th:action="@{/login}" method="post" class="form-signin">
+            <div th:if="${param.error}" class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                Invalid username and password.
+            </div>
+            <div class="form-group">
+                <label for="email" th:text="#{user.email}"> :</label>
+                <input type="email" id="email" name="email" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label th:text="#{user.password}" for="password"></label>
+                <input type="password" id="password" name="password" class="form-control"/>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-default" th:text="#{user.signin.button}"></button>
+            </div>
+        </form>
+
+    </div>
+</th:block>
 </html>

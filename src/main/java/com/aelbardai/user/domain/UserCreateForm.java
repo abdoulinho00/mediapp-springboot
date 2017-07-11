@@ -22,7 +22,6 @@ public class UserCreateForm {
     @NotEmpty
     private String passwordRepeated;
 
-    @NotNull
     @Builder.Default
     private Role role = Role.USER;
 }

@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sd="http://www.thymeleaf.org/spring-data"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Spices'">
+<th:block layout:fragment="content">
+    <div class="container p-t-30">
+        <div class="row">
+            <div class="col-md-6">
+                <form th:action="@{/signup}" th:object="${form}" method="post">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <div class="form-group">
+                        <label class="control-label" for="email"><h4 th:text="#{user.email}"></h4></label>
+                        <input type="email" id="email" th:field="*{email}" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="password"><h4 th:text="#{user.password}"></h4></label>
+                        <input type="password" id="password" th:field="*{password}" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="repeated-password"><h4 th:text="#{user.password.repeat}"></h4></label>
+                        <input type="password" id="repeated-password" th:field="*{passwordRepeated}" class="form-control"/>
+                    </div>
 
-</body>
+                    <button type="submit" th:text="#{user.signup.button}"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>
 </html>

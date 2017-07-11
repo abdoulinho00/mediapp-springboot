@@ -5,6 +5,9 @@
 >
 <th:block layout:insert="general/header"/>
 <body>
+<!--<div class=""row>
+    <img th:src="@{/assets/images/nutrition_banner.jpg}" class="img-responsive" width="100%" />
+</div>-->
 <nav class="navbar-inverse navbar-fixed-top navbar">
     <div class="container">
         <div class="navbar-header">
@@ -18,10 +21,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/articles') ? 'active':''}"><a th:href="@{/articles}" th:text="#{menubar.spices}"></a></li>
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/animals') ? 'active':''}"><a th:href="@{/menu}" th:text="#{menubar.animals}"></a></li>
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/profile/nyfiles') ? 'active':''}"><a th:href="@{/patients}" th:text="#{menubar.files}"></a></li>
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/profile/nyfiles') ? 'active':''}"><a th:href="@{/administration}" th:text="#{menubar.files}"></a></li>
+                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/articles') ? 'active':''}"><a th:href="@{/articles}" th:text="#{menubar.articles}"></a></li>
+                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/menu') ? 'active':''}"><a th:href="@{/menu}" th:text="#{menubar.menu}"></a></li>
+                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/patients') ? 'active':''}"><a th:href="@{/patients}" th:text="#{menubar.patients}"></a></li>
+                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/administration') ? 'active':''}"><a th:href="@{/administration}" th:text="#{menubar.administration}"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
