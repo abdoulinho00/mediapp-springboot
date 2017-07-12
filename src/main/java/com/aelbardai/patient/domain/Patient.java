@@ -29,6 +29,7 @@ public class Patient {
     private String phoneNumber;
     private String adress;
     private String gender;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     @Transient
     private int age;
