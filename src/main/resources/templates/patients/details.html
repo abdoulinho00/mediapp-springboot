@@ -48,7 +48,7 @@
                         <td th:text="${visit.reason}"></td>
                         <td th:text="${visit.description}"></td>
                         <td th:text="${#dates.format(visit.visittime, 'dd MMM yyyy')}"></td>
-                        <td th:if="${visit instanceof T(com.aelbardai.patient.domain.Visit)}" th:text="#{visits.form.type.general}"></td>
+                        <td th:if="${visit instanceof T(com.aelbardai.patient.domain.GeneralVisit)}" th:text="#{visits.form.type.general}"></td>
                         <td th:if="${visit instanceof T(com.aelbardai.patient.domain.EstheticVisit)}" th:text="#{visits.form.type.esthetic}"></td>
                         <td th:if="${visit instanceof T(com.aelbardai.patient.domain.NutritionVisit)}" th:text="#{visits.form.type.nutrition}"></td>
 

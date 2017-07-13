@@ -23,29 +23,29 @@ public class VisitServiceImpl implements VisitService{
     private final PatientService patientService;
 
     @Override
-    public Visit addVisit(Visit visit) {
-        return visitRepository.save(visit);
+    public <T extends Visit> T addVisit(T visit) {
+        return (T) visitRepository.save(visit);
     }
 
     @Override
-    public Visit getVisitById(Long id) {
-        return visitRepository.findOne(id);
+    public <T extends Visit> T getVisitById(Long id) {
+        return (T)visitRepository.findOne(id);
     }
 
     @Override
-    public List<Visit> getAllVisits() {
-        return (List<Visit>)visitRepository.findAll();
+    public <T extends Visit> List<T> getAllVisits() {
+        return (List<T>)visitRepository.findAll();
     }
 
     @Override
-    public List<Visit> getVisitsByPatient(Long patientId) {
+    public <T extends Visit> List<T> getVisitsByPatient(Long patientId) {
         Patient patient = patientService.getPatientById(patientId);
         if(patient ==null){
             log.info("No patient registred with id '{}'" , patientId);
             return Collections.emptyList();
         }
         else{
-            return visitRepository.findByPatient(patient);
+            return (List<T>)visitRepository.findByPatient(patient);
         }
     }
 

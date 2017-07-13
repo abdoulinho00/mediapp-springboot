@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface VisitService {
 
-    Visit addVisit(Visit visit);
-    Visit getVisitById(Long id);
-    List<Visit> getAllVisits();
-    List<Visit> getVisitsByPatient(Long patientId);
+    <T extends Visit> T addVisit(T visit);
+    <T extends Visit> T getVisitById(Long id);
+    <T extends Visit> List<T> getAllVisits();
+    <T extends Visit> List<T> getVisitsByPatient(Long patientId);
     void deleteVisit(Long id);
 }

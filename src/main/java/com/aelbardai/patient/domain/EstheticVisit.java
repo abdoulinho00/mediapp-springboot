@@ -12,6 +12,7 @@ import java.util.List;
  */
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)

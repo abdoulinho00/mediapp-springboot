@@ -1,8 +1,6 @@
 package com.aelbardai.web;
 
-import com.aelbardai.patient.domain.NutritionVisit;
-import com.aelbardai.patient.domain.Patient;
-import com.aelbardai.patient.domain.Visit;
+import com.aelbardai.patient.domain.*;
 import com.aelbardai.patient.service.PatientService;
 import com.aelbardai.patient.service.VisitService;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.validation.Valid;
 
 /**
  * Controller for medical visits : {General , nutrition , Esthetic} : add/ edit list / delete
@@ -29,33 +25,78 @@ public class VisitController {
     private final PatientService patientService;
 
     @GetMapping("/add/{patientId}")
-    public ModelAndView addVisitForm(@PathVariable("patientId") Long patientId , @RequestParam(value= "id" ,required= false) Long id){
+    public <T extends Visit> ModelAndView addVisitForm(@PathVariable("patientId") Long patientId , @RequestParam(value= "id" ,required= false) Long id){
         log.info("patient id  : {} , visit id : {}" , patientId , id);
-        Visit visit= null;
+        GeneralVisit generalVisit= null;
+        NutritionVisit nutritionVisit =null;
+        EstheticVisit estheticVisit = null;
         if(id != null ){
-            visit = visitService.getVisitById(id);
+            log.info("Edit an existing visit entry");
+            Visit visit = visitService.getVisitById(id);
             if(visit ==null){
                 log.info("No visit found with id : '{}'" , id);
-                visit = new NutritionVisit();
-            }
-        }
-        else{
-            Patient patient = patientService.getPatientById(patientId);
-            if(patient ==null){
-                return new ModelAndView("redirect:/patients");
+                return new ModelAndView("error/404" , "message" , "No visit found");
             }
             else{
-                visit = new NutritionVisit();
-                visit.setPatient(patient);
+                if(visit instanceof GeneralVisit){
+                    generalVisit = (GeneralVisit) visit;
+                }
+                if(visit instanceof NutritionVisit){
+                    nutritionVisit =(NutritionVisit) visit;
+                }
+                if(visit instanceof EstheticVisit){
+                    estheticVisit = (EstheticVisit) visit;
+                }
+                ModelAndView modelAndView = new ModelAndView("visits/add" , "generalVisit" , generalVisit);
+                modelAndView.addObject("nutritionVisit" ,nutritionVisit);
+                modelAndView.addObject("estheticVisit" ,estheticVisit);
+                return modelAndView;
             }
+
         }
-        return new ModelAndView("visits/add" , "visit" , visit);
+        else{
+            log.info("Adding new Visit entry");
+            Patient patient = patientService.getPatientById(patientId);
+            if(patient ==null){
+                log.info("No patient entry found with id '{}'" , patientId);
+                return new ModelAndView("error/404" , "message" , "No patient found");
+            }
+            else{
+                log.info("Constructing new visit objects");
+                generalVisit = GeneralVisit.builder().build();
+                generalVisit.setPatient(patient);
+                nutritionVisit = NutritionVisit.builder().build();
+                nutritionVisit.setPatient(patient);
+                estheticVisit = EstheticVisit.builder().build();
+                estheticVisit.setPatient(patient);
+                ModelAndView modelAndView = new ModelAndView("visits/add" , "generalVisit" , generalVisit);
+                modelAndView.addObject("nutritionVisit" , nutritionVisit);
+                modelAndView.addObject("estheticVisit" , estheticVisit);
+                return modelAndView;
+            }
+
+        }
+
     }
 
-    @PostMapping("/add")
-    public ModelAndView addVisist(Visit visit,BindingResult bindingResult, Model model){
-        log.info("trying to save object : {}", visit);
-        visitService.addVisit(visit);
+    @PostMapping("/add/general")
+    public  ModelAndView addGeneralVisist(@ModelAttribute("generalVisit")GeneralVisit generalVisit, BindingResult bindingResult, Model model){
+        log.info("trying to save object : {}", generalVisit);
+        visitService.addVisit(generalVisit);
+        return new ModelAndView("redirect:/patients");
+    }
+
+    @PostMapping("/add/nutrition")
+    public  ModelAndView addNutritionVisist(@ModelAttribute("nutritionVisit") NutritionVisit nutritionVisit, BindingResult bindingResult, Model model){
+        log.info("trying to save object : {}", nutritionVisit);
+        visitService.addVisit(nutritionVisit);
+        return new ModelAndView("redirect:/patients");
+    }
+
+    @PostMapping("/add/esthetic")
+    public  ModelAndView addEstheticVisist(@ModelAttribute("estheticVisit") EstheticVisit estheticVisit, BindingResult bindingResult, Model model){
+        log.info("trying to save object : {}");
+        visitService.addVisit(estheticVisit);
         return new ModelAndView("redirect:/patients");
     }
 }

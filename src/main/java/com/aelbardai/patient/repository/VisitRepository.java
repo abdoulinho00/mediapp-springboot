@@ -11,6 +11,6 @@ import java.util.List;
  * Repository for Visit.class entity
  */
 @Repository
-public interface VisitRepository extends CrudRepository<Visit, Long >{
-    List<Visit> findByPatient(Patient patient);
+public interface VisitRepository<T extends Visit> extends CrudRepository<T , Long >{
+    List<T> findByPatient(Patient patient);
 }
