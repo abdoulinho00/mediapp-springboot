@@ -37,12 +37,12 @@
                     <tr th:each="patient : ${patients}">
                         <td th:text="${patient.fullname}"></td>
                         <td th:text="${patient.email}"></td>
-                        <td th:text="${patient.birthday}"></td>
+                        <td th:text="${#dates.format(patient.birthday, 'dd MMM yyyy')}"></td>
                         <td th:text="${patient.goodWeight}"></td>
                         <td th:text="${patient.goodIMC}"></td>
 
                         <td class="actions">
-                            <a th:href="@{/patients/{id}(id=${patient.id})}" target="_blank">
+                            <a th:href="@{/patients/view/{id}(id=${patient.id})}">
                                     <span class="fa-stack fa-lg">
                                       <i class="fa fa-square fa-stack-2x"></i>
                                       <i class="fa fa-eye fa-stack-1x fa-inverse"></i>

@@ -12,7 +12,6 @@ import java.util.List;
  */
 @Entity
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
@@ -32,9 +31,4 @@ public class EstheticVisit extends Visit{
             fetch=FetchType.EAGER ,cascade = {CascadeType.ALL})
     @OrderBy("date ASC")
     private List<EstheticSession> sessions;
-
-
-    @ManyToOne(cascade = {CascadeType.ALL},fetch= FetchType.EAGER)
-    @JoinColumn(name="patient_id")
-    private Patient patient;
 }

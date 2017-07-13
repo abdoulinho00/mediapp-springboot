@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Add patient'">
+<th:block layout:fragment="content">
+    <div class="container p-t-30">
+
+        <form th:action="@{/visits/add}" method="post" th:object="${visit}" class="col-md-8">
+            <div th:if="${visit.id > 0}">
+                <input type="hidden" th:field="*{id}" />
+            </div>
+            <div>
+                <input type="hidden" th:field="*{patient.id}" />
+            </div>
+            <div class="form-group">
+                <label for="reason" th:text="#{visits.form.reason}" class="control-label h4"></label>
+                <input type="text" id="reason" th:field="*{reason}" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="description" th:text="#{visits.form.description}" class="control-label h4"></label>
+                <input type="text" id="description" th:field="*{description}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="visitTime" th:text="#{visits.form.visitTime}" class="control-label h4"></label>
+                <input type="date" id="visitTime" th:field="*{visittime}" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default btn-lg" th:text="#{patients.button.add}"></button>
+            </div>
+        </form>
+
+    </div>
+</th:block>
+</html>

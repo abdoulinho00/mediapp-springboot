@@ -10,7 +10,6 @@ import javax.persistence.*;
  */
 @Entity
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=true)
@@ -45,10 +44,4 @@ public class NutritionVisit extends Visit{
      */
     private String beforePath;
     private String afterPath;
-    /*
-     * Attached patient
-     */
-    @ManyToOne(cascade = {CascadeType.ALL},fetch= FetchType.EAGER)
-    @JoinColumn(name="patient_id")
-    private Patient patient;
 }

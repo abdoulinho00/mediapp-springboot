@@ -49,14 +49,9 @@ public class Patient {
     private String treatment;
     private String observations;
     private String physicalActivity;
-    @OneToMany(mappedBy="patient",
-            fetch=FetchType.EAGER ,cascade = {CascadeType.ALL})
-    @OrderBy("visitTime DESC")
-    private List<NutritionVisit> nutritionVisits;
-    @OneToMany(mappedBy="patient",
-            fetch=FetchType.EAGER ,cascade = {CascadeType.ALL})
-    @OrderBy("visitTime DESC")
-    private List<EstheticVisit> estheticVisits;
+
+    @OneToMany(targetEntity = Visit.class, mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<Visit> visits;
 
     private String picturePath;
 }

@@ -1,10 +1,13 @@
 package com.aelbardai.patient.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -12,12 +15,24 @@ import java.util.Date;
  */
 @Entity
 @Data
-public abstract class Visit {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Visit {
 
     @Id
     @GeneratedValue
     private long id;
     private String reason;
     private String description;
-    private Date visitTime;
+    @Column(name ="visit_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date visittime;
+    /*
+     * Attached patient
+     */
+    @ManyToOne(targetEntity = Patient.class)
+    @JoinColumn(name="patient_id")
+    @JsonIgnore
+    private Patient patient;
 }
