@@ -53,7 +53,7 @@
                 </div>
                 <div id="collapse2" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <form th:action="@{/visits/add/nutrition}" method="post" th:object="${nutritionVisit}" class="col-md-8">
+                        <form th:action="@{/visits/add/nutrition}" method="post" th:object="${nutritionVisit}" class="col-md-8" enctype="multipart/form-data">
                             <div th:if="${nutritionVisit.id > 0}">
                                 <input type="hidden" th:field="*{id}" />
                             </div>
@@ -77,7 +77,16 @@
                                 <input type="text" id="height" th:field="*{height}" class="form-control"/>
                             </div>
 
-
+                            <div class="form-group">
+                                <label for="beforeImage" th:text="#{visits.form.beforeImage}" class="control-label h4"></label>
+                                <input type="file" id="beforeImage" th:name="beforeImage" class="form-control"/>
+                                <input type="hidden"  th:field="*{beforePath}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="afterImage" th:text="#{visits.form.afterImage}" class="control-label h4"></label>
+                                <input type="file" id="afterImage" th:name="afterImage" class="form-control"/>
+                                <input type="hidden"  th:field="*{afterPath}" class="form-control"/>
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-default btn-lg" th:text="#{patients.button.add}"></button>
@@ -95,7 +104,8 @@
                     </h4>
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body"><form th:action="@{/visits/add/esthetic}" method="post" th:object="${estheticVisit}" class="col-md-8">
+                    <div class="panel-body">
+                        <form th:action="@{/visits/add/esthetic}" method="post" th:object="${estheticVisit}" class="col-md-8" enctype="multipart/form-data">
                         <div th:if="${estheticVisit.id > 0}">
                             <input type="hidden" th:field="*{id}" />
                         </div>

@@ -21,11 +21,7 @@ public class EstheticSession {
     @GeneratedValue
     private long id;
     private Date date;
-    private String observations;
 
-    private String facePath;
-    private String rightProfilePath;
-    private String leftProfilePath;
 
     @ManyToOne(cascade = {CascadeType.ALL},fetch= FetchType.EAGER)
     @JoinColumn(name="esthetic_visit_id")

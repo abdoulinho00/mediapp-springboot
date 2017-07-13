@@ -28,6 +28,10 @@ public class EstheticVisit extends Visit{
     private String estheticCondition;
     private String observations;
 
+    private String facePath;
+    private String rightProfilePath;
+    private String leftProfilePath;
+
     @OneToMany(mappedBy="estheticVisit",
             fetch=FetchType.EAGER ,cascade = {CascadeType.ALL})
     @OrderBy("date ASC")

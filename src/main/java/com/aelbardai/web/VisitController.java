@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -87,9 +88,13 @@ public class VisitController {
     }
 
     @PostMapping("/add/nutrition")
-    public  ModelAndView addNutritionVisist(@ModelAttribute("nutritionVisit") NutritionVisit nutritionVisit, BindingResult bindingResult, Model model){
+    public  ModelAndView addNutritionVisist(
+            @RequestParam("beforeImage") MultipartFile beforeImage,
+            @RequestParam("afterImage") MultipartFile afterImage,
+            @ModelAttribute("nutritionVisit") NutritionVisit nutritionVisit,
+            BindingResult bindingResult, Model model){
         log.info("trying to save object : {}", nutritionVisit);
-        visitService.addVisit(nutritionVisit);
+        visitService.addNutritionVisit(nutritionVisit , beforeImage , afterImage);
         return new ModelAndView("redirect:/patients");
     }
 
