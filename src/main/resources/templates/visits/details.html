@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='view visit'">
+<th:block layout:fragment="content">
+    <div class="container p-t-30">
+        <div class="row">
+            <h2 th:if="${visit instanceof T(com.aelbardai.patient.domain.GeneralVisit)}" th:text="#{visits.form.type.general}"></h2>
+            <h2 th:if="${visit instanceof T(com.aelbardai.patient.domain.EstheticVisit)}" th:text="#{visits.form.type.esthetic}"></h2>
+            <h2 th:if="${visit instanceof T(com.aelbardai.patient.domain.NutritionVisit)}" th:text="#{visits.form.type.nutrition}"></h2>
+        </div>
+        <div class="row">
+            <div class="col-md-2" th:text="${visit.patient.fullname}"></div>
+            <div class="col-md-10 text-right" th:text="${visit.visittime}"></div>
+        </div>
+        <th:block th:if="${visit instanceof T(com.aelbardai.patient.domain.NutritionVisit)}">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <img th:src="@{/visits/image/{id}?image=before(id=${visit.id})}" alt="before" class="img-responsive"/>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img th:src="@{/visits/image/{id}?image=after(id=${visit.id})}" alt="after" class="img-responsive"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    Before
+                </div>
+                <div class="col-md-6 text-center">
+                    After
+                </div>
+            </div>
+        </th:block>
+
+
+    </div>
+</th:block>
+</html>

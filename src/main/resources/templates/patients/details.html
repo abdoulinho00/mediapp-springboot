@@ -53,6 +53,12 @@
                         <td th:if="${visit instanceof T(com.aelbardai.patient.domain.NutritionVisit)}" th:text="#{visits.form.type.nutrition}"></td>
 
                         <td class="actions">
+                            <a th:href="@{/visits/view/{id}(id=${visit.id})}">
+                                <span class="fa-stack fa-lg">
+                                  <i class="fa fa-square fa-stack-2x"></i>
+                                  <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
                             <a th:href="@{/visits/add/{patientId}?id={id}(patientId=${patient.id}, id=${visit.id})}">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-square fa-stack-2x"></i>
