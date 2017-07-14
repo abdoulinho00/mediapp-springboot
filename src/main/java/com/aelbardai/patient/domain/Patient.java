@@ -51,6 +51,7 @@ public class Patient {
     private String physicalActivity;
 
     @OneToMany(targetEntity = Visit.class, mappedBy = "patient", cascade = CascadeType.ALL)
+    @OrderBy("visittime DESC")
     private List<Visit> visits;
 
     private String picturePath;

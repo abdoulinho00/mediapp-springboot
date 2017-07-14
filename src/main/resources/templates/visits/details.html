@@ -16,6 +16,59 @@
             <div class="col-md-10 text-right" th:text="${visit.visittime}"></div>
         </div>
         <th:block th:if="${visit instanceof T(com.aelbardai.patient.domain.NutritionVisit)}">
+            <div class="form-group">
+                <label for="height" th:text="#{visits.form.height}" class="control-label h4"></label>
+                <h5 id="height" th:text="${visit.height}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="weight" th:text="#{visits.form.weight}" class="control-label h4"></label>
+                <h5 id="weight" th:text="${visit.weight}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="waistSize" th:text="#{visits.form.waistSize}" class="control-label h4"></label>
+                <h5 id="waistSize" th:text="${visit.waistSize}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="hipSize" th:text="#{visits.form.hipSize}" class="control-label h4"></label>
+                <h5 id="hipSize" th:text="${visit.hipSize}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="armSize" th:text="#{visits.form.armSize}" class="control-label h4"></label>
+                <h5 id="armSize" th:text="${visit.armSize}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="wristSize" th:text="#{visits.form.wristSize}" class="control-label h4"></label>
+                <h5 id="wristSize" th:text="${visit.wristSize}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="baseMetabolism" th:text="#{visits.form.baseMetabolism}" class="control-label h4"></label>
+                <h5 id="baseMetabolism" th:text="${visit.baseMetabolism}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="biologicalAge" th:text="#{visits.form.biologicalAge}" class="control-label h4"></label>
+                <h5 id="biologicalAge" th:text="${visit.biologicalAge}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="water" th:text="#{visits.form.water}" class="control-label h4"></label>
+                <h5 id="water" th:text="${visit.water}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="boneMass" th:text="#{visits.form.boneMass}" class="control-label h4"></label>
+                <h5 id="boneMass" th:text="${visit.boneMass}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="visceralFat" th:text="#{visits.form.visceralFat}" class="control-label h4"></label>
+                <h5 id="visceralFat" th:text="${visit.visceralFat}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="leanMass" th:text="#{visits.form.leanMass}" class="control-label h4"></label>
+                <h5 id="leanMass" th:text="${visit.leanMass}" ></h5>
+            </div>
+            <div class="form-group">
+                <label for="fatMass" th:text="#{visits.form.fatMass}" class="control-label h4"></label>
+                <h5 id="fatMass" th:text="${visit.fatMass}" ></h5>
+            </div>
+            
             <div class="row">
                 <div class="col-md-6 text-center">
                     <img th:src="@{/visits/image/{id}?image=before(id=${visit.id})}" alt="before" class="img-responsive"/>
@@ -31,6 +84,65 @@
                 <div class="col-md-6 text-center">
                     After
                 </div>
+            </div>
+        </th:block>
+
+        <th:block th:if="${visit instanceof T(com.aelbardai.patient.domain.EstheticVisit)}">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img th:src="@{/visits/image/{id}?image=left(id=${visit.id})}" alt="before" class="img-responsive"/>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img th:src="@{/visits/image/{id}?image=face(id=${visit.id})}" alt="after" class="img-responsive"/>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img th:src="@{/visits/image/{id}?image=right(id=${visit.id})}" alt="after" class="img-responsive"/>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    Left
+                </div>
+                <div class="col-md-4 text-center">
+                    Center
+                </div>
+                <div class="col-md-4 text-center">
+                    Right
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="allergiqueHistory" th:text="#{visits.form.allergiqueHistory}" class="control-label h4"></label>
+                <h5 id="allergiqueHistory" th:text="${visit.allergiqueHistory}" ></h5>
+            </div>
+            <div class="row">
+                <label for="dermatologiqueHistory" th:text="#{visits.form.dermatologiqueHistory}" class="control-label h4"></label>
+                <h5 id="dermatologiqueHistory" th:text="${visit.dermatologiqueHistory}" ></h5>
+            </div>
+            <div class="row">
+                <label for="estheticTreatmentHistory" th:text="#{visits.form.estheticTreatmentHistory}" class="control-label h4"></label>
+                <h5 id="estheticTreatmentHistory" th:text="${visit.estheticTreatmentHistory}" ></h5>
+            </div>
+            <div class="row">
+                <label for="classification" th:text="#{visits.form.classification}" class="control-label h4"></label>
+                <h5 id="classification" th:text="${visit.classification}" ></h5>
+            </div>
+            <div class="row">
+                <label for="dermatologiqueExamination" th:text="#{visits.form.dermatologiqueExamination}" class="control-label h4"></label>
+                <h5 id="dermatologiqueExamination" th:text="${visit.dermatologiqueExamination}" ></h5>
+            </div>
+            <div class="row">
+                <label for="proposedProtocol" th:text="#{visits.form.proposedProtocol}" class="control-label h4"></label>
+                <h5 id="proposedProtocol" th:text="${visit.proposedProtocol}" ></h5>
+            </div>
+            <div class="row">
+                <label for="estheticCondition" th:text="#{visits.form.estheticCondition}" class="control-label h4"></label>
+                <h5 id="estheticCondition" th:text="${visit.estheticCondition}" ></h5>
+            </div>
+            <div class="row">
+                <label for="observations" th:text="#{visits.form.observations}" class="control-label h4"></label>
+                <h5 id="observations" th:text="${visit.observations}" ></h5>
             </div>
         </th:block>
 

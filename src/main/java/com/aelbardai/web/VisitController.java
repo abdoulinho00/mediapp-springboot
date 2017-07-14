@@ -108,9 +108,14 @@ public class VisitController {
     }
 
     @PostMapping("/add/esthetic")
-    public  ModelAndView addEstheticVisit(@ModelAttribute("estheticVisit") EstheticVisit estheticVisit, BindingResult bindingResult, Model model){
+    public  ModelAndView addEstheticVisit(
+            @RequestParam("leftImage") MultipartFile leftImage,
+            @RequestParam("rightImage") MultipartFile rightImage,
+            @RequestParam("faceImage") MultipartFile faceImage,
+            @ModelAttribute("estheticVisit") EstheticVisit estheticVisit,
+            BindingResult bindingResult, Model model){
         log.info("trying to save object : {}");
-        visitService.addVisit(estheticVisit);
+        visitService.addEstheticVisit(estheticVisit , leftImage , rightImage , faceImage);
         return new ModelAndView("redirect:/patients");
     }
 
@@ -143,19 +148,11 @@ public class VisitController {
             case "face" : if(visit instanceof EstheticVisit){path= ((EstheticVisit) visit).getFacePath();}
                 break;
             default: break;
-
         }
-
             if(path != null) {
                 try {
-
-
-                    //response.setContentType("im");
-                    //response.setHeader("Content-Disposition", String.format("inline; filename=%s.%s",fileElement.getName(),fileElement.getExtension()));
-                    //return new FileSystemResource(file);
                     response.setContentType("image/jpg");
                     response.getOutputStream().write(Files.readAllBytes(Paths.get(path)));
-                    //return new FileSystemResource(new File(path));
                 }catch(IOException ex){
                     log.error("couldn't write in output stream");
                     return null;
@@ -167,8 +164,6 @@ public class VisitController {
             else{
                 return null;
             }
-
-
         return null;
     }
 }

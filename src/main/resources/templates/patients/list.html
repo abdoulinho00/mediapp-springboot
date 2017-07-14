@@ -12,7 +12,7 @@
         </div>
         <div class="row  p-t-30">
             <div class="col-md-12">
-                <table class="datatable_no_addon stripe" cellspacing="0" width="100%">
+                <table class="table table-strpied datatable_no_addon stripe" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th th:text="#{patients.form.fullname}"></th>
@@ -63,7 +63,7 @@
                         <div sd:pagination-summary=""></div>
                     </div>
                     <div class="col-sm-6">
-                        <div sd:page-object="${spices}">
+                        <div sd:page-object="${patients}">
                             <ul class="pagination pull-right m-t-0" sd:pagination="full"></ul>
                         </div>
                     </div>

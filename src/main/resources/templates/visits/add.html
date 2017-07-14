@@ -7,7 +7,7 @@
 <th:block layout:fragment="content">
     <div class="container p-t-30">
         <div class="panel-group" id="accordion">
-            <div class="panel panel-default" th:if="${generalVisit != null}">
+            <div class="panel panel-success" th:if="${generalVisit != null}">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
@@ -44,14 +44,14 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default" th:if="${nutritionVisit != null}">
+            <div class="panel panel-success" th:if="${nutritionVisit != null}">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
                             Nutrition visit</a>
                     </h4>
                 </div>
-                <div id="collapse2" class="panel-collapse collapse">
+                <div id="collapse2" class="panel-collapse collapse" th:classappend="${(nutritionVisit.id > 0)?'in':''}">
                     <div class="panel-body">
                         <form th:action="@{/visits/add/nutrition}" method="post" th:object="${nutritionVisit}" class="col-md-8" enctype="multipart/form-data">
                             <div th:if="${nutritionVisit.id > 0}">
@@ -76,6 +76,54 @@
                                 <label for="height" th:text="#{visits.form.height}" class="control-label h4"></label>
                                 <input type="text" id="height" th:field="*{height}" class="form-control"/>
                             </div>
+                            <div class="form-group">
+                                <label for="weight" th:text="#{visits.form.weight}" class="control-label h4"></label>
+                                <input type="text" id="weight" th:field="*{weight}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="waistSize" th:text="#{visits.form.waistSize}" class="control-label h4"></label>
+                                <input type="text" id="waistSize" th:field="*{waistSize}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="hipSize" th:text="#{visits.form.hipSize}" class="control-label h4"></label>
+                                <input type="text" id="hipSize" th:field="*{hipSize}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="armSize" th:text="#{visits.form.armSize}" class="control-label h4"></label>
+                                <input type="text" id="armSize" th:field="*{armSize}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="wristSize" th:text="#{visits.form.wristSize}" class="control-label h4"></label>
+                                <input type="text" id="wristSize" th:field="*{wristSize}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="baseMetabolism" th:text="#{visits.form.baseMetabolism}" class="control-label h4"></label>
+                                <input type="text" id="baseMetabolism" th:field="*{baseMetabolism}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="biologicalAge" th:text="#{visits.form.biologicalAge}" class="control-label h4"></label>
+                                <input type="text" id="biologicalAge" th:field="*{biologicalAge}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="water" th:text="#{visits.form.water}" class="control-label h4"></label>
+                                <input type="text" id="water" th:field="*{water}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="boneMass" th:text="#{visits.form.boneMass}" class="control-label h4"></label>
+                                <input type="text" id="boneMass" th:field="*{boneMass}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="visceralFat" th:text="#{visits.form.visceralFat}" class="control-label h4"></label>
+                                <input type="text" id="visceralFat" th:field="*{visceralFat}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="leanMass" th:text="#{visits.form.leanMass}" class="control-label h4"></label>
+                                <input type="text" id="leanMass" th:field="*{leanMass}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="fatMass" th:text="#{visits.form.fatMass}" class="control-label h4"></label>
+                                <input type="text" id="fatMass" th:field="*{fatMass}" class="form-control"/>
+                            </div>
 
                             <div class="form-group">
                                 <label for="beforeImage" th:text="#{visits.form.beforeImage}" class="control-label h4"></label>
@@ -96,14 +144,14 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default" th:if="${estheticVisit != null}">
+            <div class="panel panel-success" th:if="${estheticVisit != null}">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                             Esthetic Visit</a>
                     </h4>
                 </div>
-                <div id="collapse3" class="panel-collapse collapse">
+                <div id="collapse3" class="panel-collapse collapse" th:classappend="${(estheticVisit.id > 0)?'in':''}">
                     <div class="panel-body">
                         <form th:action="@{/visits/add/esthetic}" method="post" th:object="${estheticVisit}" class="col-md-8" enctype="multipart/form-data">
                         <div th:if="${estheticVisit.id > 0}">
@@ -128,7 +176,49 @@
                             <label for="allergiqueHistory" th:text="#{visits.form.allergiqueHistory}" class="control-label h4"></label>
                             <input type="text" id="allergiqueHistory" th:field="*{allergiqueHistory}" class="form-control"/>
                         </div>
-
+                        <div class="form-group">
+                            <label for="dermatologiqueHistory" th:text="#{visits.form.dermatologiqueHistory}" class="control-label h4"></label>
+                            <input type="text" id="dermatologiqueHistory" th:field="*{dermatologiqueHistory}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="estheticTreatmentHistory" th:text="#{visits.form.estheticTreatmentHistory}" class="control-label h4"></label>
+                            <input type="text" id="estheticTreatmentHistory" th:field="*{estheticTreatmentHistory}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="classification" th:text="#{visits.form.classification}" class="control-label h4"></label>
+                            <input type="text" id="classification" th:field="*{classification}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="dermatologiqueExamination" th:text="#{visits.form.dermatologiqueExamination}" class="control-label h4"></label>
+                            <input type="text" id="dermatologiqueExamination" th:field="*{dermatologiqueExamination}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="proposedProtocol" th:text="#{visits.form.proposedProtocol}" class="control-label h4"></label>
+                            <input type="text" id="proposedProtocol" th:field="*{proposedProtocol}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="estheticCondition" th:text="#{visits.form.estheticCondition}" class="control-label h4"></label>
+                            <input type="text" id="estheticCondition" th:field="*{estheticCondition}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="observations" th:text="#{visits.form.observations}" class="control-label h4"></label>
+                            <input type="text" id="observations" th:field="*{observations}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="facePath" th:text="#{visits.form.facePath}" class="control-label h4"></label>
+                            <input type="file" id="facePath" th:name="faceImage" class="form-control"/>
+                            <input type="hidden"  th:field="*{facePath}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="rightProfilePath" th:text="#{visits.form.rightProfilePath}" class="control-label h4"></label>
+                            <input type="file" id="rightProfilePath" th:name="rightImage" class="form-control"/>
+                            <input type="hidden"  th:field="*{rightProfilePath}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="leftProfilePath" th:text="#{visits.form.leftProfilePath}" class="control-label h4"></label>
+                            <input type="file" id="leftProfilePath" th:name="leftImage" class="form-control"/>
+                            <input type="hidden"  th:field="*{leftProfilePath}" class="form-control"/>
+                        </div>
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-default btn-lg" th:text="#{patients.button.add}"></button>

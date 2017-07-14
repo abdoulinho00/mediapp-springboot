@@ -18,6 +18,112 @@
                 <h5 th:text="${patient.email}"></h5>
             </div>
         </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.phoneNumber}"></label>
+                <h5 th:text="${patient.phoneNumber}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.adress}"></label>
+                <h5 th:text="${patient.adress}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.gender}"></label>
+                <h5 th:text="${patient.gender}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.birthday}"></label>
+                <h5 th:text="${patient.birthday}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.age}"></label>
+                <h5 th:text="${patient.age}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.profession}"></label>
+                <h5 th:text="${patient.profession}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.identification}"></label>
+                <h5 th:text="${patient.identification}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label h4" th:text="#{patients.form.allergies}"></label>
+                <h5 th:text="${patient.allergies}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.minWeight}"></label>
+                <h5 th:text="${patient.minWeight}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.goodWeight}"></label>
+                <h5 th:text="${patient.goodWeight}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.maxWeight}"></label>
+                <h5 th:text="${patient.maxWeight}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.minIMC}"></label>
+                <h5 th:text="${patient.minIMC}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.goodIMC}"></label>
+                <h5 th:text="${patient.goodIMC}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.maxIMC}"></label>
+                <h5 th:text="${patient.maxIMC}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.personalHistory}"></label>
+                <h5 th:text="${patient.personalHistory}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.familyHistory}"></label>
+                <h5 th:text="${patient.familyHistory}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.taste}"></label>
+                <h5 th:text="${patient.taste}"></h5>
+            </div>
+            <div class="form-group col-md-4">
+                <label class="control-label h4" th:text="#{patients.form.water}"></label>
+                <h5 th:text="${patient.water}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label h4" th:text="#{patients.form.treatment}"></label>
+                <h5 th:text="${patient.treatment}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label h4" th:text="#{patients.form.observations}"></label>
+                <h5 th:text="${patient.observations}"></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label h4" th:text="#{patients.form.physicalActivity}"></label>
+                <h5 th:text="${patient.physicalActivity}"></h5>
+            </div>
+        </div>
         <div class="row text-right">
             <a th:href="@{/visits/add/{id}(id=${patient.id})}" class="btn btn-lg btn-primary">Add visit</a>
         </div>
