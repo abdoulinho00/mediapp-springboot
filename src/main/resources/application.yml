@@ -19,4 +19,4 @@ server:
   port: 8082
 
 file-manager:
-  base-folder:  /home/jenkins
+  base-folder:  /home/ec2-user/data
