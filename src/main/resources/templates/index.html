@@ -6,6 +6,7 @@
       th:with="title='Spices'">
 <th:block layout:fragment="content">
     <div class="container p-t-30">
+        <th:block th:if="false">
         <ul class="list-group">
             <li class="list-group-item active">Articles</li>
             <li class="list-group-item list-group-item-warning">html editor for article content</li>
@@ -20,7 +21,7 @@
             <li class="list-group-item list-group-item-success">List patients</li>
             <li class="list-group-item list-group-item-success">function for adding/editing general visits to a patient</li>
             <li class="list-group-item list-group-item-success">form that submits different types of visits<span class="badge">8</span></li>
-            <li class="list-group-item list-group-item-warning">view patient details and history<span class="badge">2</span></li>
+            <li class="list-group-item list-group-item-success">view patient details and history<span class="badge">2</span></li>
             <li class="list-group-item list-group-item-warning">Search in patients<span class="badge">2</span></li>
             <li class="list-group-item list-group-item-warning">pagination in list patients<span class="badge">2</span></li>
             <li class="list-group-item list-group-item-warning">delete patient<span class="badge">1</span></li>
@@ -49,7 +50,7 @@
             <li class="list-group-item list-group-item-warning">list users for admin only <span class="badge">2</span></li>
             <li class="list-group-item list-group-item-warning">Assign permissions to users<span class="badge">5</span></li>
         </ul>
-
+        </th:block>
 
     </div>
 </th:block>

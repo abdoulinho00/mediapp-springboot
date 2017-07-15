@@ -2,6 +2,8 @@ package com.aelbardai.web;
 
 import com.aelbardai.article.domain.Article;
 import com.aelbardai.article.service.ArticleService;
+import com.aelbardai.diet.domain.MenuItem;
+import com.aelbardai.diet.service.MenuItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AdministrationController {
 
     private final ArticleService articleService;
+    private final MenuItemService menuItemService;
 
     @GetMapping({"","/"})
     public ModelAndView adminMainPage(){
@@ -55,4 +58,31 @@ public class AdministrationController {
     /*
         Controller methods for menu items
      */
+    @GetMapping("/diet/add")
+    public ModelAndView addMenuItemForm(@RequestParam(value="id" ,required = false) Long id){
+        MenuItem menuItem =null;
+        if(id !=null){
+            menuItem = menuItemService.getMenuItemById(id);
+            if(menuItem == null){
+                return new ModelAndView("error/404" , "message" , "No menu found");
+            }
+            else{
+                return new ModelAndView("diet/add" , "menuItem" , menuItem);
+            }
+        }
+        else{
+            return new ModelAndView("diet/add" , "menuItem" , new MenuItem());
+        }
+    }
+
+    @PostMapping("/diet/add")
+    public ModelAndView addMenuItem(MenuItem menuItem){
+        menuItemService.addMenuItem(menuItem);
+        return new ModelAndView("redirect:/administration/diet/list");
+    }
+
+    @GetMapping("/diet/list")
+    public ModelAndView listMenuItems(){
+        return new ModelAndView("diet/list" , "menuItems" , menuItemService.getAllMenuItems());
+    }
 }

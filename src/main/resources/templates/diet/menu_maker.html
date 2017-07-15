@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout"
+      th:with="title='Login'">
+<th:block layout:fragment="content">
+    <div class="container p-t-30">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                <label class="control-label h4">Menu item</label>
+                    <select id="menuItem" class="form-control">
+                        <option th:each="menuItem : ${menuItems}" th:value="${menuItem.id}" th:text="${menuItem.name}"/>
+                    </select>
+                </div>
+                <div class="form-group">
+                <label class="control-label h4">Menu type</label>
+                    <select  id="menuType" class="form-control">
+                        <option th:each="type: ${T(com.aelbardai.diet.domain.MenuType).values()}"
+                                th:value="${type}"
+                                th:text="${type}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="addMenuItem();" class="btn btn-primary">Add menu</button>
+                </div>
+            </div>
+            <div id="menu" class="col-md-9" >
+                <fieldset th:each="type: ${T(com.aelbardai.diet.domain.MenuType).values()}">
+                    <legend th:text="${type}"></legend>
+                    <div class="panel-group" th:id="${type}"></div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addMenuItem(){
+            var menuItem = $("#menuItem").val();
+            var type = $("#menuType").val();
+            $.get("/api/diet/view/"+menuItem,function(data,status){
+                    if(status == "success"){
+                        var content = '<div class="panel panel-success"><div class="panel-heading">'+data.name+'<a href="#" onclick="removeMenuItem(this)"><span class="glyphicon glyphicon-remove"></span></a></div>'
+                        content +='<div class="panel-body">'+data.content+'</div></div>'
+                        $("#"+type).append(content)
+                    }
+                }
+            );
+
+        }
+
+        function removeMenuItem(node){
+            node.parentNode.parentNode.parentNode.removeChild(node.parentNode.parentNode)
+        }
+
+        function printMenu(){
+            var content = $("#menu").html();
+            w=window.open();
+            w.document.write(content);
+            w.print();
+            w.close();
+        }
+    </script>
+</th:block>
+</html>
