@@ -19,7 +19,7 @@ public class MenuItem {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String name;
     //breakfast, lunch, dinner
     private MenuType type;

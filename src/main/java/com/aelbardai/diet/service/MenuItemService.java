@@ -15,4 +15,5 @@ public interface MenuItemService {
     void deleteMenuItem(Long id);
     List<MenuItem> getAllMenuItems();
     List<MenuItem> getMenuItemsByUser(User user);
+    boolean importCiqualDB(String filename);
 }
