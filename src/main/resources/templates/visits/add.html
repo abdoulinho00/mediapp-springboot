@@ -10,8 +10,7 @@
             <div class="panel panel-success" th:if="${generalVisit != null}">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                            General Visit</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" th:text="#{visits.form.title.general}"></a>
                     </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
@@ -35,6 +34,10 @@
                                 <label for="visitTime" th:text="#{visits.form.visitTime}" class="control-label h4"></label>
                                 <input type="date" id="visitTime" th:field="*{visittime}" class="form-control"/>
                             </div>
+                            <div class="form-group">
+                                <label for="treatment" th:text="#{visits.form.treatment}" class="control-label h4"></label>
+                                <input type="text" id="treatment" th:field="*{treatment}" class="form-control"/>
+                            </div>
 
 
                             <div class="form-group">
@@ -47,8 +50,7 @@
             <div class="panel panel-success" th:if="${nutritionVisit != null}">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                            Nutrition visit</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" th:text="#{visits.form.title.nutrition}"></a>
                     </h4>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse" th:classappend="${(nutritionVisit.id > 0)?'in':''}">
@@ -71,6 +73,10 @@
                             <div class="form-group">
                                 <label for="visitTime" th:text="#{visits.form.visitTime}" class="control-label h4"></label>
                                 <input type="date" id="visitTime" th:field="*{visittime}" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="treatment" th:text="#{visits.form.treatment}" class="control-label h4"></label>
+                                <input type="text" id="treatment" th:field="*{treatment}" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label for="height" th:text="#{visits.form.height}" class="control-label h4"></label>
@@ -147,8 +153,7 @@
             <div class="panel panel-success" th:if="${estheticVisit != null}">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                            Esthetic Visit</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" th:text="#{visits.form.title.esthetic}"></a>
                     </h4>
                 </div>
                 <div id="collapse3" class="panel-collapse collapse" th:classappend="${(estheticVisit.id > 0)?'in':''}">
@@ -171,6 +176,10 @@
                         <div class="form-group">
                             <label for="visitTime" th:text="#{visits.form.visitTime}" class="control-label h4"></label>
                             <input type="date" id="visitTime" th:field="*{visittime}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="treatment" th:text="#{visits.form.treatment}" class="control-label h4"></label>
+                            <input type="text" id="treatment" th:field="*{treatment}" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="allergiqueHistory" th:text="#{visits.form.allergiqueHistory}" class="control-label h4"></label>

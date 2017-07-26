@@ -25,6 +25,7 @@ public abstract class Visit {
     @Column(name ="visit_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date visittime;
+    private String treatment;
     /*
      * Attached patient
      */
