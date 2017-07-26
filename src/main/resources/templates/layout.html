@@ -2,6 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
 >
 <th:block layout:insert="general/header"/>
 <body>
@@ -27,9 +28,9 @@
                 <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/administration') ? 'active':''}"><a th:href="@{/administration}" th:text="#{menubar.administration}"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
+                <li class="dropdown" sec:authorize="isAuthenticated()">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                        <span >admin</span><span class="caret"></span>
+                        <span sec:authentication="name">admin</span><span class="caret"></span>
 
                     </a>
                     <ul class="dropdown-menu">
@@ -37,8 +38,8 @@
                         <li><a th:href="@{/profile}" th:text="#{menubar.profile}"></a></li>
                     </ul>
                 </li>
-                <li ><a th:href="@{/login}" th:text="#{menubar.login}"></a></li>
-                <li ><a th:href="@{/signup}" th:text="#{menubar.signup}"></a></li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/login}" th:text="#{menubar.login}"></a></li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/signup}" th:text="#{menubar.signup}"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

@@ -11,13 +11,13 @@
             <div class="col-md-3">
                 <div class="form-group">
                 <label class="control-label h4">Menu item</label>
-                    <select id="menuItem" class="form-control">
+                    <select id="menuItem" class="form-control selectpicker" data-live-search="true">
                         <option th:each="menuItem : ${menuItems}" th:value="${menuItem.id}" th:text="${menuItem.name}"/>
                     </select>
                 </div>
                 <div class="form-group">
                 <label class="control-label h4">Menu type</label>
-                    <select  id="menuType" class="form-control">
+                    <select  id="menuType"  class="selectpicker form-control">
                         <option th:each="type: ${T(com.aelbardai.diet.domain.MenuType).values()}"
                                 th:value="${type}"
                                 th:text="${type}"></option>
@@ -62,6 +62,7 @@
             w.print();
             w.close();
         }
+
     </script>
 </th:block>
 </html>
