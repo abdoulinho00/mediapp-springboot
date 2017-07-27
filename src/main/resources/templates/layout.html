@@ -9,7 +9,12 @@
 <!--<div class=""row>
     <img th:src="@{/assets/images/nutrition_banner.jpg}" class="img-responsive" width="100%" />
 </div>-->
-<nav class="navbar-inverse navbar-fixed-top navbar">
+<div class="row text-right p-r-20 m-t-0">
+    <a th:href="@{?theme=default}">Default </a>
+    <a th:href="@{?theme=purple}">| Purple </a>
+    <a th:href="@{?theme=dark}">| Dark</a>
+</div>
+<nav class="navbar-inverse navbar-top navbar">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -53,11 +58,7 @@
         </div>
     </div>
 </nav>
-<div class="row">
-    <a th:href="@{?theme=default}">Default </a>
-    <a th:href="@{?theme=purple}">| Purple </a>
-    <a th:href="@{?theme=dark}">| Dark</a>
-</div>
+
 <div class="container">
     <div class="row">
         <th:block layout:fragment="content"/>
