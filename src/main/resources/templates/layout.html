@@ -53,6 +53,11 @@
         </div>
     </div>
 </nav>
+<div class="row">
+    <a th:href="@{?theme=default}">Default </a>
+    <a th:href="@{?theme=purple}">| Purple </a>
+    <a th:href="@{?theme=dark}">| Dark</a>
+</div>
 <div class="container">
     <div class="row">
         <th:block layout:fragment="content"/>
