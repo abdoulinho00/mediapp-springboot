@@ -1,9 +1,9 @@
 spring:
   application:
-    name: Spices-web
-    description: Spices web application
+    name: Mediapp
+    description: Web app for medical patients management
   datasource:
-    name: spices
+    name: mediapp
     dbcp2:
       test-on-borrow: true
       validation-query: SELECT 1

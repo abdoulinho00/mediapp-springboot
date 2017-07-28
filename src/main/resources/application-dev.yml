@@ -16,7 +16,7 @@ spring:
       max-request-size: 30MB
 
 file-manager:
-  base-folder:  /Users/dev/workspace/mediapp/data
+  base-folder:  /home/ec2-user/data
 logging:
   pattern:
     console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36}.%M-%line - %msg%n"
