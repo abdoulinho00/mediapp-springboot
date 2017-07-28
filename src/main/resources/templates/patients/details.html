@@ -130,7 +130,7 @@
 
         <div class="row  p-t-30">
             <div class="col-md-12">
-                <table class="datatable_no_addon stripe" cellspacing="0" width="100%">
+                <table class="table datatable_no_addon stripe" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th th:text="#{visits.form.reason}"></th>
@@ -158,7 +158,7 @@
                         <td th:if="${visit instanceof T(com.aelbardai.patient.domain.EstheticVisit)}" th:text="#{visits.form.type.esthetic}"></td>
                         <td th:if="${visit instanceof T(com.aelbardai.patient.domain.NutritionVisit)}" th:text="#{visits.form.type.nutrition}"></td>
 
-                        <td class="actions">
+                        <td class="actions text-right">
                             <a th:href="@{/visits/view/{id}(id=${visit.id})}">
                                 <span class="fa-stack fa-lg">
                                   <i class="fa fa-square fa-stack-2x"></i>

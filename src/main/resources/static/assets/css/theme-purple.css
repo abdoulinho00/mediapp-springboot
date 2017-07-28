@@ -1,26 +1,42 @@
+html body{
+    background-color: #f4f0f5;
+    color: #14001a;
+}
 a:hover {
-    color: #07b76f;
+    color: #63476b;
     text-decoration: none;
 }
 
 .navbar{
 //background-color: #89bf04;;
-    background-color: #B6A9C7;
+    //background-color: #B6A9C7;
+    background-color: #8f6699;
 //background-color: #d1c4e2;
     border: none;
+
+    //border: none;
+
+    background: #7d7e7d; /* Old browsers */
+    //background: -moz-linear-gradient(top,  #7d7e7d 0%, #8f6699 50%, #f4f0f5 100%); /* FF3.6+ */
+    //background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(8%,#ffa838), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(bottom,   #8f6699 60%, #f4f0f5 100%); /* Chrome10+,Safari5.1+ */
+    //background: -o-linear-gradient(top,  #7d7e7d 0%, #8f6699 50%, #f4f0f5 100%); /* Opera 11.10+ */
+    //background: -ms-linear-gradient(top,  #7d7e7d 0%, #8f6699 50%, #f4f0f5 100%); /* IE10+ */
+    //background: linear-gradient(to bottom,  #7d7e7d 0%, #8f6699 50%, #f4f0f5 100%); /* W3C */
+    //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 );
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
     color: #fff;
 }
 
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover {
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover , .btn-primary:hover {
     color: #837b94;
     background-color: #fff;
 }
 
 .button, button {
-    background-color: #07b76f;
+    background-color: #8f6699;
     border-style: solid;
     border-width: 0;
     line-height: normal;
@@ -29,7 +45,7 @@ a:hover {
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    border-color: #07b76f;
+    border-color: #8f6699;
     color: #fff;
     -webkit-transition: background-color .3s ease-out;
     -moz-transition: background-color .3s ease-out;
@@ -58,8 +74,18 @@ div.jumbotron.mail-bg-primary {
 }
 
 div.enhance{
-    background: #63b175;
+    background: #8f6699;
     color: #fff;
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+    background-color: #8f6699;
+    color: #fff;
+    border: none;
+}
+
+legend{
+    color: #8f6699;
 }
 
 div.filesystem{
@@ -74,4 +100,45 @@ div.filesystem.navigation{
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
+}
+
+a{
+    color: #8932c1;
+    cursor: pointer;
+}
+
+nav a:hover{
+    color: #fff;
+}
+
+nav a{
+    color: #2b2b2b;
+}
+
+.btn-primary{
+    color: #fff;
+    background-color: #8932c1;
+    border: solid 1px #8f6699;
+}
+
+.btn-primary:hover{
+    background-color: #63476b;
+    color: #fff;
+}
+
+.table{
+    background-color: #2b2b2b;
+    color: #fff;
+}
+
+table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+    background-color: #b7b7b7;
+    color:black;
+    vertical-align: middle;
+}
+
+table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+    background-color: #d5d5d5;
+    color: #111111;
+    vertical-align: middle;
 }
