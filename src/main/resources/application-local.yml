@@ -20,3 +20,6 @@ file-manager:
 logging:
   pattern:
     console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36}.%M-%line - %msg%n"
+
+server:
+  port: 8081

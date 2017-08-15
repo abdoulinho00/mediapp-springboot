@@ -6,8 +6,8 @@
       layout:decorator="layout"
       th:with="title='List all patients'">
 <th:block layout:fragment="content">
-    <div class="container p-t-30">
-        <div class="row text-right">
+    <div class="container-fluid p-t-30">
+        <div class="row text-right p-r-20">
             <a th:href="@{/patients/add}" th:text="#{patients.link.add}" class="btn btn-primary" ></a>
         </div>
         <div class="row  p-t-30">

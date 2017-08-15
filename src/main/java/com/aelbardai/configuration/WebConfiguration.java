@@ -46,7 +46,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         CookieThemeResolver resolver = new CookieThemeResolver();
         resolver.setCookieMaxAge(2400);
         resolver.setCookieName("mytheme");
-        resolver.setDefaultThemeName("default");
+        resolver.setDefaultThemeName("purple");
         return resolver;
     }
 

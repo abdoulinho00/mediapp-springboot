@@ -10,7 +10,7 @@
     <img th:src="@{/assets/images/nutrition_banner.jpg}" class="img-responsive" width="100%" />
 </div>-->
 
-<nav class="navbar-inverse navbar-top navbar">
+<nav class="navbar-inverse navbar-fixed-top navbar">
     <div class="row text-right p-r-20 m-t-0">
         <a th:href="@{?theme=default}">Default </a>
         <a th:href="@{?theme=purple}">| Purple </a>
@@ -28,12 +28,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/articles') ? 'active':''}"><a th:href="@{/articles}" th:text="#{menubar.articles}"></a></li>
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/diet/maker') ? 'active':''}"><a th:href="@{/diet/maker}" th:text="#{menubar.menu}"></a></li>
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/patients') ? 'active':''}"><a th:href="@{/patients}" th:text="#{menubar.patients}"></a></li>
-                <li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/administration') ? 'active':''}"><a th:href="@{/administration}" th:text="#{menubar.administration}"></a></li>
+                <!--<li th:classappend="${#httpServletRequest.getRequestURI().startsWith('/articles') ? 'active':''}"><a th:href="@{/articles}" th:text="#{menubar.articles}"></a></li>
+                -->
+                <li><a th:href="@{/articles}" th:text="#{menubar.articles}"></a></li>
+                <li><a th:href="@{/diet/maker}" th:text="#{menubar.menu}"></a></li>
+                <li><a th:href="@{/patients}" th:text="#{menubar.patients}"></a></li>
+                <li><a th:href="@{/administration}" th:text="#{menubar.administration}"></a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav " th:classappend="__${#locale}__=='ar'?'navbar-left':'navbar-right'">
                 <li class="dropdown" sec:authorize="isAuthenticated()">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         <span sec:authentication="name">admin</span><span class="caret"></span>
@@ -44,15 +46,16 @@
                         <li><a th:href="@{/profile}" th:text="#{menubar.profile}"></a></li>
                     </ul>
                 </li>
-                <li sec:authorize="isAnonymous()"><a th:href="@{/login}" th:text="#{menubar.login}"></a></li>
-                <li sec:authorize="isAnonymous()"><a th:href="@{/signup}" th:text="#{menubar.signup}"></a></li>
+                <!--<li sec:authorize="isAnonymous()"><a th:href="@{/login}" th:text="#{menubar.login}"></a></li>
+                <li sec:authorize="isAnonymous()"><a th:href="@{/signup}" th:text="#{menubar.signup}"></a></li>-->
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav " th:classappend="__${#locale}__=='ar'?'navbar-left m-l-20':'navbar-right'">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><span th:text="#{menubar.language.title}"></span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a th:href="@{?lang=en}" th:text="#{menubar.language.english}"></a></li>
                         <li><a th:href="@{?lang=fr}" th:text="#{menubar.language.french}"></a></li>
+                        <li><a th:href="@{?lang=ar}" th:text="#{menubar.language.arabic}"></a></li>
                     </ul>
                 </li>
             </ul>
@@ -60,8 +63,8 @@
     </div>
 </nav>
 
-<div class="container-fluid">
-    <div class="row">
+<div id ="container" class="container-fluid">
+    <div class="row p-b-70">
         <th:block layout:fragment="content"/>
     </div>
 </div>

@@ -5,9 +5,11 @@
     <title th:text="${title}">Mailing History</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" th:if="__${#locale}__=='ar'">
     <link rel="stylesheet" type="text/css" href="/webjars/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/jquery.dataTables.min.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/application.css}" />
     <link rel="stylesheet" type="text/css" th:href="${#themes.code('styleSheet')}" />
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/jquery.dataTables.min.css}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
 </head>

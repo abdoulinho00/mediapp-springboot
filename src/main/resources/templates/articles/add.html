@@ -5,7 +5,7 @@
       layout:decorator="layout"
       th:with="title='Add article'">
 <th:block layout:fragment="content">
-    <div class="container p-t-30">
+    <div class="container-fluid p-t-30">
 
         <form th:action="@{/administration/articles/edit}" method="post" th:object="${article}" class="col-md-8">
             <div th:if="${article.id > 0}">

@@ -1,4 +1,23 @@
-<footer xmlns:th="http://www.thymeleaf.org">
+<footer xmlns:th="http://www.thymeleaf.org" class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 th:text="#{footer.clinic.header}"></h3>
+                <p th:text="#{footer.clinic.text}"></p>
+            </div>
+            <div class="col-md-4">
+                <h3 th:text="#{footer.contact.header}"></h3>
+                <p th:text="#{footer.contact.address}"></p>
+            </div>
+            <div class="col-md-4">
+                <h3 th:text="#{footer.social.header}"></h3>
+            </div>
+
+        </div>
+        <hr WIDTH="75%" ALIGN="CENTER"/>
+        <div class="row text-center" th:text="#{footer.copyright}">
+        </div>
+    </div>
     <script type="text/javascript" src="/webjars/jquery/3.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
