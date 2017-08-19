@@ -7,10 +7,18 @@
             </div>
             <div class="col-md-4">
                 <h3 th:text="#{footer.contact.header}"></h3>
-                <p th:text="#{footer.contact.address}"></p>
+                <p th:inline="text"><i class="fa fa-map-marker" aria-hidden="true"></i> [[#{footer.contact.address}]]</p>
+                <p><i class="fa fa-phone" aria-hidden="true"></i> +212537555555</p>
+                <p ><i class="fa fa-paper-plane" aria-hidden="true"></i> mariam@gmail.com </p>
             </div>
             <div class="col-md-4">
                 <h3 th:text="#{footer.social.header}"></h3>
+                <p>
+                    <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social"></i></a>
+                    <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social"></i></a>
+                    <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social"></i></a>
+                    <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social"></i></a>
+                </p>
             </div>
 
         </div>
